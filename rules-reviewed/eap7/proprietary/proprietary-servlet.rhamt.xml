@@ -1,0 +1,61 @@
+<ruleset id="proprietary-servlet"
+    xmlns="http://windup.jboss.org/schema/jboss-ruleset" 
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://windup.jboss.org/schema/jboss-ruleset: http://windup.jboss.org/schema/windup-jboss-ruleset.xsd">
+    <metadata>
+        <description>
+ This ruleset looks for Java files that contain Proprietary Servlet annotations.
+        </description>
+        <dependencies>
+            <addon id="org.jboss.windup.rules,windup-rules-java,2.3.0.Final"/>
+        </dependencies>
+        <sourceTechnology id="proprietary" versionRange="(10,12]"/>
+        <targetTechnology id="eap" versionRange="[7,)"/>
+    </metadata>
+<rule id="proprietary-servlet-01000">
+    <when>
+        <javaclass references="com.example.proprietary.servlet.annotation.ProprietaryServlet">
+             <location>ANNOTATION</location>
+         </javaclass>
+    </when>
+    <perform>  
+        <hint title="Proprietary Servlet annotation" effort="3">
+            <message>Replace the proprietary @ProprietaryServlet annotation with the Java EE 7 standard @WebServlet annotation.  
+See the javax.servlet.annotation.WebServlet JavaDoc for more information.</message>
+            <link href="https://docs.oracle.com/javaee/7/api/javax/servlet/annotation/WebServlet.html"
+  title="Java EE 7 WebServlet Javadoc" />
+        </hint>
+    </perform>
+</rule>
+<rule id="proprietary-servlet-02000">
+    <when>
+        <javaclass references="com.example.proprietary.servlet.annotation.ProprietaryFilter">
+             <location>ANNOTATION</location>
+         </javaclass>
+    </when>
+    <perform>  
+        <hint title="Proprietary Filter annotation" effort="3">
+            <message>Replace the proprietary @ProprietaryFilter annotation with the Java EE 7 standard @WebFilter annotation.  
+See the javax.servlet.annotation.WebFilter JavaDoc for more information.</message>
+            <link href="https://docs.oracle.com/javaee/7/api/javax/servlet/annotation/WebFilter.html"
+  title="Java EE 7 WebFilter Javadoc" />
+        </hint>
+    </perform>
+</rule>
+<rule id="proprietary-servlet-03000">
+    <when>
+        <javaclass references="com.example.proprietary.servlet.annotation.ProprietaryInitParam">
+             <location>ANNOTATION</location>
+         </javaclass>
+    </when>
+    <perform>  
+        <hint title="ProprietaryInitParam annotation" effort="3">
+            <message>Replace the proprietary @ProprietaryInitParam annotation with the Java EE 7 standard @WebInitParam annotation.  
+See the javax.servlet.annotation.WebInitParam JavaDoc for more information.</message>
+            <link href="https://docs.oracle.com/javaee/7/api/javax/servlet/annotation/WebInitParam.html"
+  title="Java EE 7 WebInitParam Javadoc" />
+        </hint>
+    </perform>
+</rule>
+</ruleset>
+
