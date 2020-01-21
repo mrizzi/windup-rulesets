@@ -15,6 +15,9 @@
 			<from uri="direct:xslt-copy-all"/>
 			<log message="input: \n ${body}"/>
 			<to uri="xslt:xslt/copy-all.xsl"/>
+			<to uri="bean:beanName[?options]"/>
+			<to uri="browse:someName[?options]"/>
+			<to uri="controlbus:command[?options]"/>
 			<log message="output: \n ${body}"/>
 			<to uri="mock:result"/>
 		</route>

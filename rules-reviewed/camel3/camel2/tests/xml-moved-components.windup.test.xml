@@ -30,6 +30,30 @@
                     <fail message="[xml-moved-components] 'camel-xslt' dependency moved hint was not found!" />
                 </perform>
             </rule>
+            <rule id="xml-moved-components-00002-test">
+                <when>
+                    <not>
+                        <iterable-filter size="8">
+                            <hint-exists message="`camel-.*` component has been moved from `camel-core` to separate artifact `org.apache.camel:camel.*"/>
+                        </iterable-filter>
+                    </not>
+                </when>
+                <perform>
+                    <fail message="[xml-moved-components] Camel dependency moved hint was not found!" />
+                </perform>
+            </rule>
+            <rule id="xml-moved-components-00003-test">
+                <when>
+                    <not>
+                        <iterable-filter size="8">
+                            <hint-exists message="`camel-.*` component has been moved from `camel-core` to separate artifact `org.apache.camel:camel.*"/>
+                        </iterable-filter>
+                    </not>
+                </when>
+                <perform>
+                    <fail message="[xml-moved-components] Camel dependency moved hint was not found!" />
+                </perform>
+            </rule>
         </rules>
     </ruleset>
 </ruletest>

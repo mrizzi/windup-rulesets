@@ -10,6 +10,9 @@ public class MyRouteBuilder extends RouteBuilder {
             .choice()
             .when(xpath("/person/city = 'London'"))
             .to("xslt:xslt/copy-all.xsl")
+            .to("bean:beanName[?options]")
+            .to("browse:someName[?options]")
+            .to("controlbus:command[?options]")
             .otherwise()
             .to("file:target/messages/others");
     }
