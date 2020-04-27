@@ -30,7 +30,7 @@
         </rule>
         <rule id="springboot-integration-to-quarkus-00010">
             <when>
-                <xmlfile matches="//*[local-name()='channel']">
+                <xmlfile matches="//*/int:channel">
                     <namespace prefix="int" uri="http://www.springframework.org/schema/integration"/>
                 </xmlfile>
             </when>
